@@ -3,4 +3,4 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-MODEL_NAME = os.getenv("MODEL_NAME", "ProsusAI/finbert")
+MODEL_NAME = os.getenv("MODEL_NAME", "distilbert-base-uncased-finetuned-sst-2-english")
