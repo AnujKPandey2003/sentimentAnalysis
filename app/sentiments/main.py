@@ -34,10 +34,12 @@ def root():
     return {"status": "Sentiment API Running"}
 
 
-@app.get("/health")
-def health():
-    return {"status": "healthy"}
 
+
+@app.get("/health")
+@app.head("/health")
+def health():
+    return {"status": "ok"}
 
 @app.post("/analyze", response_model=SentimentResponse)
 def analyze(request: SentimentRequest):
