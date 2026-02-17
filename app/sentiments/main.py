@@ -5,7 +5,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from .schemas import (
     SentimentRequest,
     BatchSentimentRequest,
-    SentimentResponse
+    SentimentResponse,
+    BatchSentimentResponse
 )
 
 from .service import analyze_text, analyze_batch
@@ -49,7 +50,7 @@ def analyze(request: SentimentRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.post("/analyze-batch")
+@app.post("/analyze-batch", response_model=BatchSentimentResponse)
 def analyze_batch_endpoint(request: BatchSentimentRequest):
     try:
         return analyze_batch(request.texts)

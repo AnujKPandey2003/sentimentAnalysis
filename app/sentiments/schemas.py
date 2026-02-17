@@ -14,3 +14,10 @@ class SentimentResponse(BaseModel):
     label: str
     score: float
     confidence: float
+
+
+class BatchSentimentResponse(BaseModel):
+    overall_sentiment: str
+    average_score: float
+    confidence: float
+    results: List[SentimentResponse]
